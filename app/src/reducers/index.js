@@ -1,8 +1,9 @@
-import {FETCH_CARDS_SUCCESS, FETCH_CARDS_START} from '../actions'
+import {FETCH_CARDS_SUCCESS, FETCH_CARDS_START, FETCH_CARDS_FAILURE} from '../actions'
 
 const initialState = {
     cards: [],
-    isLoading: false
+    isLoading: false,
+    error: ''
 }
 
 export const reducer = (state = initialState, action) => {
@@ -16,7 +17,14 @@ export const reducer = (state = initialState, action) => {
             return{
                 ...state,
                 cards: action.payload,
-                isLoading: false
+                isLoading: false,
+                error: ''
+            }
+        case FETCH_CARDS_FAILURE:
+            return{
+                ...state,
+                isLoading: false,
+                error: action.payload
             }
         default:
             return state;

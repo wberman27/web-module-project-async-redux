@@ -1,12 +1,13 @@
 import axios from 'axios'
 
 export const FETCH_CARDS_SUCCESS = "FETCH_CARDS_SUCCESS"
+export const FETCH_CARDS_FAILURE = "FETCH_CARDS_FAILURE"
 export const FETCH_CARDS_START = "FETCH_CARDS_START"
 
 export const fetchCards = () =>{
     return (dispatch) =>{
 
-        
+
         dispatch({type: FETCH_CARDS_START})
 
 
@@ -18,6 +19,7 @@ export const fetchCards = () =>{
         })
         .catch(err =>{
             console.log(err)
+            dispatch({type:FETCH_CARDS_FAILURE, payload: err.message})
         })
     }
 }
