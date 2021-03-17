@@ -1,9 +1,9 @@
 import axios from 'axios'
-import {BASE_CARDS, RED_CARDS} from '../consts'
 
 export const FETCH_CARDS_SUCCESS = "FETCH_CARDS_SUCCESS"
 export const FETCH_CARDS_FAILURE = "FETCH_CARDS_FAILURE"
 export const FETCH_CARDS_START = "FETCH_CARDS_START"
+
 
 export const fetchCards = (color) =>{
     return (dispatch) =>{

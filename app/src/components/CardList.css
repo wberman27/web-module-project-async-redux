@@ -1,7 +1,26 @@
 @import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-
+*{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+body{
+    background-color: rgba(122, 255, 255, 0.685);
+}
 button{
     color:white;
+    width:10%;
+    padding: 20px;
+    margin:10px 20px 10px 20px;
+    font-size: 1.2rem;
+    box-shadow: 0 3px 3px rgba(87, 88, 88, 0.521), 0 3px 3px rgba(87, 88, 88, 0.521);
+    transition: .3s ease-in-out;
+}
+button:hover{
+    transition: .3s ease-in-out;
+    transform: scale(1.2)
+    
+}
+span{
+    font-size: 2rem;
 }
 .red{
     background-color: red;
@@ -18,4 +37,16 @@ button{
 .white{
     background-color: white;
     color: black;
+}
+h1{
+    font-size: 3rem;
+}
+h3{
+    font-size: 1.5rem;
+}
+img{
+    background-color: white;
+    margin: 5px;
+    padding: 10px;
+    box-shadow: 0 3px 3px rgba(87, 88, 88, 0.521), 0 3px 3px rgba(87, 88, 88, 0.521);
 }

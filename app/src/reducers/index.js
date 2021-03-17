@@ -3,7 +3,7 @@ import {FETCH_CARDS_SUCCESS, FETCH_CARDS_START, FETCH_CARDS_FAILURE} from '../ac
 const initialState = {
     cards: [],
     isLoading: false,
-    error: ''
+    error: '',
 }
 
 export const reducer = (state = initialState, action) => {

@@ -2,8 +2,9 @@ import { useEffect } from 'react'
 import {connect} from 'react-redux'
 import { fetchCards } from '../actions'
 import './CardList.css'
-import {BASE_CARDS, BLACK_CARDS, BLUE_CARDS, GREEN_CARDS, RED_CARDS, WHITE_CARDS} from '../consts'
+import {BASE_CARDS, BLACK_CARDS, BLUE_CARDS, GREEN_CARDS, RED_CARDS, WHITE_CARDS, GATHERER_URL} from '../consts'
 import Loader from "react-loader-spinner"
+import axios from 'axios'
 
 const CardList = (props) =>{
 
@@ -20,6 +21,18 @@ const CardList = (props) =>{
 
     }
 
+    const handleGatherer = (e) =>{
+        e.preventDefault()
+        console.log(`${GATHERER_URL}${e.target.id}`)
+        axios.get(`${GATHERER_URL}${e.target.id}`)
+        .then(res =>{
+            console.log(res)
+        })
+        .catch(err =>{
+            console.log("THIS IS A GATHERER FETCH ERROR!", err)
+        })
+    }
+
     return(
         <>
         <div className = 'card-wrapper'>
@@ -32,17 +45,21 @@ const CardList = (props) =>{
                 <button className = "blue" onClick={handleClick} id={BLUE_CARDS}>Blue</button>
                 <button className = "white" onClick={handleClick} id={WHITE_CARDS}>White</button>
             </div>
+            <p>Click On A Card for More Details</p>
+            {props.isLoading ? 
+            <h3>Loading...</h3>
+                 : null}
             {props.isLoading ? 
             <Loader
                 type="ThreeDots"
-                color="#00BFFF"
+                color="green"
                 height={100}
                 width={100}
                 timeout={3000} //3 secs
                 />     : null}
             {props.error ? <h2 style={{color:'red'}}>{props.error}</h2> : null}
             {props.cards.map((item)=>{
-                return <img key={item.multiverseid} src={item.imageUrl} alt={item.name}/>           
+                return <img key={item.multiverseid} src={item.imageUrl} alt={item.name} id={item.multiverseid} onClick={handleGatherer}/>           
             })}
         </div>
         </>
