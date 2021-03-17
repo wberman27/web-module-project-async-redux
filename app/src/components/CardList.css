@@ -16,7 +16,8 @@ button{
 }
 button:hover{
     transition: .3s ease-in-out;
-    transform: scale(1.2)
+    transform: scale(1.2);
+    cursor: pointer;
     
 }
 span{
@@ -42,11 +43,18 @@ h1{
     font-size: 3rem;
 }
 h3{
-    font-size: 1.5rem;
+    font-size: 2.5rem;
 }
 img{
     background-color: white;
     margin: 5px;
     padding: 10px;
     box-shadow: 0 3px 3px rgba(87, 88, 88, 0.521), 0 3px 3px rgba(87, 88, 88, 0.521);
+    transition: .3s ease-in-out;
+}
+img:hover{
+    padding: 0px;
+    transition: .3s ease-in-out;
+    cursor: pointer;
+    transform: scale(1.5)
 }

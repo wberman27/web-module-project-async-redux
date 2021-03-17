@@ -4,7 +4,6 @@ import { fetchCards } from '../actions'
 import './CardList.css'
 import {BASE_CARDS, BLACK_CARDS, BLUE_CARDS, GREEN_CARDS, RED_CARDS, WHITE_CARDS, GATHERER_URL} from '../consts'
 import Loader from "react-loader-spinner"
-import axios from 'axios'
 
 const CardList = (props) =>{
 
@@ -14,23 +13,16 @@ const CardList = (props) =>{
         fetchCards(BASE_CARDS)
     },[fetchCards])
 
-
+    //on click of color button, fetchCards invoked to fetch cards of only that color
     const handleClick = (e) =>{
         e.preventDefault()
         fetchCards(e.target.id)
 
     }
-
+    //on click of image this handler will redirect you to the images mtg gatherer page
     const handleGatherer = (e) =>{
-        e.preventDefault()
-        console.log(`${GATHERER_URL}${e.target.id}`)
-        axios.get(`${GATHERER_URL}${e.target.id}`)
-        .then(res =>{
-            console.log(res)
-        })
-        .catch(err =>{
-            console.log("THIS IS A GATHERER FETCH ERROR!", err)
-        })
+        e.preventDefault();
+        window.open(`${GATHERER_URL}${e.target.id}`, "_blank")
     }
 
     return(
@@ -45,7 +37,7 @@ const CardList = (props) =>{
                 <button className = "blue" onClick={handleClick} id={BLUE_CARDS}>Blue</button>
                 <button className = "white" onClick={handleClick} id={WHITE_CARDS}>White</button>
             </div>
-            <p>Click On A Card for More Details</p>
+            {props.isLoading ? null : <p>Click On A Card for More Details</p>}
             {props.isLoading ? 
             <h3>Loading...</h3>
                  : null}
