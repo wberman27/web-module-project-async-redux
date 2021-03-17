@@ -1,0 +1,6 @@
+export const BASE_CARDS = "https://api.magicthegathering.io/v1/cards?contains=imageUrl"
+export const BLUE_CARDS = "&colorIdentity=U"
+export const RED_CARDS = "&colorIdentity=R"
+export const WHITE_CARDS = "&colorIdentity=W"
+export const BLACK_CARDS = "&colorIdentity=B"
+export const GREEN_CARDS = "&colorIdentity=G"

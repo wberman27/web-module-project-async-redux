@@ -1,4 +1,5 @@
 import axios from 'axios'
+import {BASE_CARDS, RED_CARDS} from '../consts'
 
 export const FETCH_CARDS_SUCCESS = "FETCH_CARDS_SUCCESS"
 export const FETCH_CARDS_FAILURE = "FETCH_CARDS_FAILURE"
@@ -11,7 +12,7 @@ export const fetchCards = () =>{
         dispatch({type: FETCH_CARDS_START})
 
 
-        axios.get('https://api.magicthegathering.io/v1/cards?contains=imageUrl')
+        axios.get(BASE_CARDS)
         .then(res =>{
             console.log(res)
             //res.data.cards
