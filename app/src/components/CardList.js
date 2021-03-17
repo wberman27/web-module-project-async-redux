@@ -1,23 +1,34 @@
 import { useEffect } from 'react'
 import {connect} from 'react-redux'
 import { fetchCards } from '../actions'
-
+import {BASE_CARDS, BLACK_CARDS, BLUE_CARDS, GREEN_CARDS, RED_CARDS, WHITE_CARDS} from '../consts'
 
 const CardList = (props) =>{
 
     //fetchCards on page load
     const {fetchCards} = props
     useEffect(()=>{
-        fetchCards()
+        fetchCards(BASE_CARDS)
     },[fetchCards])
+
+
+    const handleClick = (e) =>{
+        e.preventDefault()
+        fetchCards(e.target.id)
+
+    }
 
     return(
         <>
         <div className = 'card-wrapper'>
             <h1>MTG Cards</h1>
             <div className="card-nav">
-                <span>Pick Color: </span>
-                <button>Red</button><button>Black</button><button>Green</button><button>Blue</button><button>White</button>
+                <span>Filter Color: </span>
+                <button onClick={handleClick} id={RED_CARDS}>Red</button>
+                <button onClick={handleClick} id={BLACK_CARDS}>Black</button>
+                <button onClick={handleClick} id={GREEN_CARDS}>Green</button>
+                <button onClick={handleClick} id={BLUE_CARDS}>Blue</button>
+                <button onClick={handleClick} id={WHITE_CARDS}>White</button>
             </div>
             {props.isLoading ? <h2 style={{color:'green'}}>Loading...</h2> : null}
             {props.error ? <h2 style={{color:'red'}}>{props.error}</h2> : null}
