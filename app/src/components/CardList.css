@@ -1,0 +1,19 @@
+button{
+    color:white;
+}
+.red{
+    background-color: red;
+}
+.green{
+    background-color: green;
+}
+.black{
+    background-color: black;
+}
+.blue{
+    background-color: blue;
+}
+.white{
+    background-color: white;
+    color: black;
+}

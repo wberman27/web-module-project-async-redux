@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import {connect} from 'react-redux'
 import { fetchCards } from '../actions'
+import './CardList.css'
 import {BASE_CARDS, BLACK_CARDS, BLUE_CARDS, GREEN_CARDS, RED_CARDS, WHITE_CARDS} from '../consts'
 
 const CardList = (props) =>{
@@ -24,11 +25,11 @@ const CardList = (props) =>{
             <h1>MTG Cards</h1>
             <div className="card-nav">
                 <span>Filter Color: </span>
-                <button onClick={handleClick} id={RED_CARDS}>Red</button>
-                <button onClick={handleClick} id={BLACK_CARDS}>Black</button>
-                <button onClick={handleClick} id={GREEN_CARDS}>Green</button>
-                <button onClick={handleClick} id={BLUE_CARDS}>Blue</button>
-                <button onClick={handleClick} id={WHITE_CARDS}>White</button>
+                <button className = "red" onClick={handleClick} id={RED_CARDS}>Red</button>
+                <button className = "black" onClick={handleClick} id={BLACK_CARDS}>Black</button>
+                <button className = "green" onClick={handleClick} id={GREEN_CARDS}>Green</button>
+                <button className = "blue" onClick={handleClick} id={BLUE_CARDS}>Blue</button>
+                <button className = "white" onClick={handleClick} id={WHITE_CARDS}>White</button>
             </div>
             {props.isLoading ? <h2 style={{color:'green'}}>Loading...</h2> : null}
             {props.error ? <h2 style={{color:'red'}}>{props.error}</h2> : null}
