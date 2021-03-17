@@ -1,9 +1,29 @@
 @import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+
+@keyframes wobble {
+    25% {
+      transform: rotate(15deg);
+      transform: scale(2);
+    }
+    50% {
+      transform: rotate(-30deg);
+
+    }
+    75% {
+      transform: rotate(5deg);
+
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+
+
 *{
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 body{
-    background-color: rgba(122, 255, 255, 0.685);
+    background-color: rgb(36 82 82 / 69%);
 }
 button{
     color:white;
@@ -22,6 +42,9 @@ button:hover{
 }
 span{
     font-size: 2rem;
+    color: white;
+    text-shadow: 1px 2px 3px black, 1px 2px 3px black;
+    font-weight: bold;
 }
 .red{
     background-color: red;
@@ -39,11 +62,25 @@ span{
     background-color: white;
     color: black;
 }
+.youngWolf{
+    background-color: gold;
+    color:black;
+    border: 3px dashed;
+}
+.youngWolf:hover{
+    animation: wobble 4s;
+    
+}
 h1{
     font-size: 3rem;
+    color: white;
+    text-shadow: 1px 2px 3px black, 1px 2px 3px black;
 }
 h3{
     font-size: 2.5rem;
+}
+p{
+    color:white;
 }
 img{
     background-color: white;

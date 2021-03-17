@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import {connect} from 'react-redux'
 import { fetchCards } from '../actions'
 import './CardList.css'
-import {BASE_CARDS, BLACK_CARDS, BLUE_CARDS, GREEN_CARDS, RED_CARDS, WHITE_CARDS, GATHERER_URL} from '../consts'
+import {BASE_CARDS, BLACK_CARDS, BLUE_CARDS, GREEN_CARDS, RED_CARDS, WHITE_CARDS, GATHERER_URL, YOUNG_WOLF} from '../consts'
 import Loader from "react-loader-spinner"
 
 const CardList = (props) =>{
@@ -28,7 +28,7 @@ const CardList = (props) =>{
     return(
         <>
         <div className = 'card-wrapper'>
-            <h1>MTG Cards</h1>
+            <h1>Magic: The Gathering Cards</h1>
             <div className="card-nav">
                 <span>Filter Color: </span>
                 <button className = "red" onClick={handleClick} id={RED_CARDS}>Red</button>
@@ -36,6 +36,7 @@ const CardList = (props) =>{
                 <button className = "green" onClick={handleClick} id={GREEN_CARDS}>Green</button>
                 <button className = "blue" onClick={handleClick} id={BLUE_CARDS}>Blue</button>
                 <button className = "white" onClick={handleClick} id={WHITE_CARDS}>White</button>
+                <button className = "youngWolf" onClick={handleClick} id={YOUNG_WOLF}>Young Wolf</button>
             </div>
             {props.isLoading ? null : <p>Click On A Card for More Details</p>}
             {props.isLoading ? 

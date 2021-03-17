@@ -6,3 +6,9 @@ export const BLACK_CARDS = "https://api.magicthegathering.io/v1/cards?contains=i
 export const GREEN_CARDS = "https://api.magicthegathering.io/v1/cards?contains=imageUrl&colorIdentity=G"
 
 export const GATHERER_URL = 'https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid='
+
+
+
+
+//for the memes
+export const YOUNG_WOLF = 'https://api.magicthegathering.io/v1/cards?multiverseid=262872'
