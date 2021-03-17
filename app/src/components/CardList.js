@@ -13,8 +13,9 @@ const CardList = (props) =>{
     return(
         <>
         <div className = 'card-wrapper'>
+            {props.isLoading ? <h2 style={{color:'green'}}>Loading...</h2> : null}
             {props.cards.map((item)=>{
-                return <p key={item.multiverseid}>{item.name}</p>
+                return <img key={item.multiverseid} src={item.imageUrl} alt={item.name}/>           
             })}
         </div>
         </>
@@ -24,7 +25,8 @@ const CardList = (props) =>{
 
 const mapStateToProps = (state) =>{
     return{
-        cards: state.cards
+        cards: state.cards,
+        isLoading: state.isLoading
     }
 }
 
